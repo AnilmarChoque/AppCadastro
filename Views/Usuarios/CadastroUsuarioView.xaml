@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppCadastro.Views.Usuarios.CadastroUsuarioView"
+             Shell.PresentationMode="Animated"
+             Title="CadastroUsuarioView">
+    <ScrollView>
+        <VerticalStackLayout Spacing="3" Padding="15">
+            <Label Text="Id" FontSize="Medium" />
+            <Entry Text="{Binding Id}" IsEnabled="False" FontSize="Medium" />
+
+            <Label Text="Nome" FontSize="Medium" />
+            <Entry Text="{Binding Nome}" FontSize="Medium" />
+            
+            <Label Text="CPF" FontSize="Medium" />
+            <Entry Text="{Binding Cpf}" FontSize="Medium" Keyboard="Numeric" MaxLength="11"/>
+            
+            <Label Text="E-mail" FontSize="Medium" />
+            <Entry Text="{Binding Email}" FontSize="Medium" Keyboard="Email"/>
+            
+            <Label Text="Senha" FontSize="Medium" />
+            <Entry Text="{Binding Senha}" FontSize="Medium" IsPassword="True" />
+
+            <Label Text="Preferencia" FontSize="Medium" />
+            <Picker Title="---Selecione---" ItemsSource="{Binding ListaTiposClasse}" ItemDisplayBinding="{Binding Descricao}" SelectedItem="{Binding TipoClasseSelecionado}" />
+
+            <HorizontalStackLayout Spacing="20">
+                <Button Text="Salvar" Command="{Binding SalvarCommand}"></Button>
+                <Button Text="Cancel" Command="{Binding CancelarCommand}"></Button>
+            </HorizontalStackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
